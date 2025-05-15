@@ -7,7 +7,7 @@ export default function ListaLocalScreen() {
   return (
     //console.log(datos), para ver el contenido del archivo JSON
     <View>
-      <Text>ListaLocalScreen</Text>
+      <Text style={styles.text}>informacion de los personajes</Text>
       <FlatList
         data={datos}
         renderItem={({ item }) =>// para recorrer los arreglos y ver los datos
@@ -27,5 +27,11 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     
+  },
+  text:{
+    textAlign:'center',
+    padding:22,
+    fontSize:30,
+    fontWeight: 'bold'
   }
 })

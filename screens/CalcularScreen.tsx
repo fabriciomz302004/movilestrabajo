@@ -12,6 +12,7 @@ export default function CalcularScreen() {
     const [salario, setsalario] = useState(0)
 
     useEffect(() => {
+
         if (Number.isNaN(edad)) {
             Alert.alert("Error", "No se acepta texto")
             setedad(0)
@@ -28,8 +29,14 @@ export default function CalcularScreen() {
         let salarioanual;
         if( edad>= 18){
             salarioanual= salario*12 
-            Alert.alert("EL salario anual es:"+ salarioanual)
+            const decimoTercero = 475;
+        const decimoCuarto = salario;
+        const salarioTotal = salarioanual + decimoTercero + decimoCuarto;
 
+        Alert.alert(
+            "Cálculo de Salario",
+            `Sueldo general: $${salarioanual.toFixed(2)}\nDécimo tercero: $${decimoTercero.toFixed(2)}\nDécimo cuarto: $${decimoCuarto.toFixed(2)}\nSalario total: $${salarioTotal.toFixed(2)}`
+        );
         }else{
             Alert.alert('Error, El empleado tiene que ser mayor de edad')
         }
@@ -48,14 +55,14 @@ export default function CalcularScreen() {
             />
 
             <TextInput
-                placeholder='Ingresar nombre'
+                placeholder='ingrese su edad'
                 style={styles.input}
                 onChangeText={(texto) => setedad(+texto)}
                 value={edad.toString()}
             />
 
             <TextInput
-                placeholder='Ingresar nombre'
+                placeholder='Ingresar salario'
                 style={styles.input}
                 onChangeText={(texto) => setsalario(+texto)}
                 value={salario.toString()}
